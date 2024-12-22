@@ -11,5 +11,45 @@
     <button id="btn">Start</button>
     <div id="output"></div>
     <script type="text/javascript" src="./script.js"></script>
+	  <script>
+		  const btn = document.getElementById("btn");
+const output = document.getElementById("output");
+
+btn.addEventListener("click", () => {
+  const inputNumber = Number(document.getElementById("ip").value);
+
+  new Promise((resolve) => {
+    setTimeout(() => resolve(inputNumber), 2000);
+  })
+    .then((number) => {
+      output.textContent = `Result: ${number}`;
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(number * 2), 1000);
+      });
+    })
+    .then((number) => {
+      output.textContent = `Result: ${number}`;
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(number - 3), 1000);
+      });
+    })
+    .then((number) => {
+      output.textContent = `Result: ${number}`;
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(number / 2), 1000);
+      });
+    })
+    .then((number) => {
+      output.textContent = `Result: ${number}`;
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(number + 10), 1000);
+      });
+    })
+    .then((finalNumber) => {
+      output.textContent = `Final Result: ${finalNumber}`;
+    });
+});
+
+	  </script>
   </body>
 </html>
